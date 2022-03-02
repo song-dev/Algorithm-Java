@@ -1,4 +1,4 @@
-package com.song.algorithm;
+package com.song.algorithm.array;
 
 import org.junit.Test;
 
@@ -29,7 +29,7 @@ import org.junit.Test;
  * nums 的每个元素都将在 [-9999, 9999]之间。
  *
  */
-public class Leetcode_704_binary_search {
+public class LeetCode704_BinarySearch {
 
     /**
      * 左闭右闭 [left right]
