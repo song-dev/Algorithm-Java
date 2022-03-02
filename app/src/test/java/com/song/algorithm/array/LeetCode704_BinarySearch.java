@@ -33,6 +33,10 @@ public class LeetCode704_BinarySearch {
 
     /**
      * 左闭右闭 [left right]
+     *
+     * 时间复杂度 O(log(n))
+     * 空间复杂度 O(1)
+     *
      * @param nums
      * @param target
      * @return
@@ -58,6 +62,10 @@ public class LeetCode704_BinarySearch {
 
     /**
      * 左闭右开 [left right)
+     *
+     * 时间复杂度 O(log(n))
+     * 空间复杂度 O(1)
+     *
      * @param nums
      * @param target
      * @return

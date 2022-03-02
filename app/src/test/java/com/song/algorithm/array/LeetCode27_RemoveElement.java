@@ -55,6 +55,8 @@ public class LeetCode27_RemoveElement {
 
     /**
      * 快慢指针
+     * 时间复杂度 O(n)
+     * 空间复杂度 O(1)
      *
      * @param nums
      * @param val
@@ -77,6 +79,8 @@ public class LeetCode27_RemoveElement {
 
     /**
      * 双指针，不在意输出顺序
+     * 时间复杂度 O(n)
+     * 空间复杂度 O(1)
      *
      * @param nums
      * @param val
