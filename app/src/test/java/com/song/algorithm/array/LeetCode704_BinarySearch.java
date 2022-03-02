@@ -73,7 +73,8 @@ public class LeetCode704_BinarySearch {
     public int search2(int[] nums, int target) {
         int left = 0, right = nums.length - 1;
         while (left < right) {
-            int mid = (right + left) / 2;
+//            int mid = (right + left) / 2; 可能导致溢出
+            int mid = left + (right - left) / 2;
             if (target == nums[mid]) {
                 return mid;
             } else if (target > nums[mid]) {
