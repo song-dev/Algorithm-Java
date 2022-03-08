@@ -1,0 +1,130 @@
+package com.song.algorithm.tree;
+
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
+/**
+ * 107. 二叉树的层序遍历 II
+ * https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii
+ * <p>
+ * 给你二叉树的根节点 root ，返回其节点值 自底向上的层序遍历 。 （即按从叶子节点所在层到根节点所在的层，逐层从左向右遍历）
+ * <p>
+ *  
+ * <p>
+ * 示例 1：
+ * <p>
+ * <p>
+ * 输入：root = [3,9,20,null,null,15,7]
+ * 输出：[[15,7],[9,20],[3]]
+ * 示例 2：
+ * <p>
+ * 输入：root = [1]
+ * 输出：[[1]]
+ * 示例 3：
+ * <p>
+ * 输入：root = []
+ * 输出：[]
+ *  
+ * <p>
+ * 提示：
+ * <p>
+ * 树中节点数目在范围 [0, 2000] 内
+ * -1000 <= Node.val <= 1000
+ */
+public class LeetCode107_LevelOrderBottom {
+
+    public static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+
+    public List<List<Integer>> levelOrderBottom(TreeNode root) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (root != null) {
+            Queue<TreeNode> queue = new LinkedList<>();
+            queue.offer(root);
+            while (!queue.isEmpty()) {
+                List<Integer> list = new ArrayList<>();
+                int size = queue.size();
+                for (int i = 0; i < size; i++) {
+                    TreeNode node = queue.poll();
+                    list.add(node.val);
+                    if (node.left != null) {
+                        queue.offer(node.left);
+                    }
+                    if (node.right != null) {
+                        queue.offer(node.right);
+                    }
+                }
+                result.add(list);
+            }
+        }
+        Collections.reverse(result);
+        return result;
+    }
+
+    /**
+     * 递归实现
+     *
+     * @param root
+     * @return
+     */
+    public List<List<Integer>> levelOrderBottom2(TreeNode root) {
+        List<List<Integer>> result = new ArrayList<>();
+        recursive(root, result, 0);
+        Collections.reverse(result);
+        return result;
+    }
+
+    private void recursive(TreeNode root, List<List<Integer>> result, int deep) {
+        if (root != null) {
+            deep++;
+            if (result.size() < deep) {
+                result.add(new ArrayList<>());
+            }
+            result.get(deep - 1).add(root.val);
+            recursive(root.left, result, deep);
+            recursive(root.right, result, deep);
+        }
+    }
+
+
+    @Test
+    public void test() {
+        TreeNode root = new TreeNode(1);
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node3 = new TreeNode(3);
+        TreeNode node4 = new TreeNode(4);
+        TreeNode node5 = new TreeNode(5);
+        TreeNode node6 = new TreeNode(6);
+        TreeNode node7 = new TreeNode(7);
+        root.left = node2;
+        root.right = node3;
+        node2.left = node4;
+        node2.right = node5;
+        node3.left = node6;
+        node3.right = node7;
+        System.out.println(Arrays.toString(levelOrderBottom(root).toArray()));
+        System.out.println(Arrays.toString(levelOrderBottom2(root).toArray()));
+    }
+}
