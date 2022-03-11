@@ -7,9 +7,9 @@ import java.util.Map;
 
 /**
  * 面试题50. 第一个只出现一次的字符
- *
+ * <p>
  * https://leetcode-cn.com/problems/di-yi-ge-zhi-chu-xian-yi-ci-de-zi-fu-lcof/
- *
+ * <p>
  * 在字符串 s 中找出第一个只出现一次的字符。如果没有，返回一个单空格。 s 只包含小写字母。
  * <p>
  * 示例 1:
@@ -30,6 +30,7 @@ public class Interview50_FirstChar {
 
     /**
      * 时间复杂度 O(n)
+     *
      * @param s
      * @return
      */
@@ -51,10 +52,26 @@ public class Interview50_FirstChar {
         return ' ';
     }
 
+    public char firstUniqChar2(String s) {
+        int[] arr = new int[26];
+        for (int i = 0; i < s.length(); i++) {
+            int c = s.charAt(i) - 'a';
+            arr[c]++;
+        }
+        for (int i = 0; i < s.length(); i++) {
+            int c = s.charAt(i) - 'a';
+            if (arr[c] == 1) {
+                return (char) ('a' + c);
+            }
+        }
+        return ' ';
+    }
+
     @Test
     public void test() {
         String s = "leetcode";
         System.out.println(firstUniqChar(s));
+        System.out.println(firstUniqChar2(s));
     }
 
 }
