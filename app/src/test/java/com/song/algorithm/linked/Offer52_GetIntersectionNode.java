@@ -97,6 +97,15 @@ public class Offer52_GetIntersectionNode {
         return null;
     }
 
+    /**
+     * 快慢指针
+     * 时间复杂度 O(n)
+     * 空间复杂度 O(1)
+     *
+     * @param headA
+     * @param headB
+     * @return
+     */
     public ListNode getIntersectionNode2(ListNode headA, ListNode headB) {
         if (headA == null || headB == null) {
             return null;

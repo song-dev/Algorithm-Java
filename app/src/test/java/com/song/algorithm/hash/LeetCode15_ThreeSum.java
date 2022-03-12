@@ -89,7 +89,7 @@ public class LeetCode15_ThreeSum {
     /**
      * 先排序后双指针
      * 时间复杂度 O(n2)
-     * 空间复杂度 O(n)
+     * 空间复杂度 O(n) (考虑排序不改变原数组需要复制数组为 O(n)，考虑快排空间 O(log(n)))
      *
      * @param nums
      * @return

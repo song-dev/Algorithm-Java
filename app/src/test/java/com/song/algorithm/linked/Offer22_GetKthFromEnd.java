@@ -30,6 +30,8 @@ public class Offer22_GetKthFromEnd {
 
     /**
      * 快慢指针
+     * 时间复杂度 O(n)
+     * 空间复杂度 O(1)
      *
      * @param head
      * @param k
