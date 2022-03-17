@@ -1,4 +1,4 @@
-package com.song.algorithm.array;
+package com.song.algorithm.dp;
 
 import org.junit.Test;
 
