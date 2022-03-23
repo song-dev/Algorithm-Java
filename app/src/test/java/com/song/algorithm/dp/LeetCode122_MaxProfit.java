@@ -88,10 +88,26 @@ public class LeetCode122_MaxProfit {
         return dp[(prices.length - 1) % 2][1];
     }
 
+    /**
+     * 贪心算法
+     *
+     * @param prices
+     * @return
+     */
+    public int maxProfit3(int[] prices) {
+        int result = 0;
+        for (int i = 1; i < prices.length; i++) {
+            result += Math.max(0, prices[i] - prices[i - 1]);
+        }
+        return result;
+
+    }
+
     @Test
     public void test() {
         System.out.println(maxProfit(new int[]{4, 3, 2, 1}));
         System.out.println(maxProfit2(new int[]{7, 1, 5, 3, 6, 4}));
+        System.out.println(maxProfit3(new int[]{7, 1, 5, 3, 6, 4}));
     }
 
 }
